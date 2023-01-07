@@ -1,12 +1,12 @@
 import GraduationPage from "./pages/Graduation";
 import UnderConstruction from "./pages/UnderConstruction";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 
 function App() {
   
   
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<UnderConstruction />} />
         <Route path="/dashboard" element={<UnderConstruction />} />
@@ -15,7 +15,7 @@ function App() {
         <Route path="/teachers" element={<UnderConstruction />} />
 
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
