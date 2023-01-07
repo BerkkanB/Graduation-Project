@@ -51,6 +51,7 @@ export default function MatchingTable({ data, teachers }) {
     const [state, setState] = useState(data);
 
     function onDragEnd(result) {
+        console.log(result);
         const { source, destination } = result;
 
         // dropped outside the list
@@ -71,7 +72,7 @@ export default function MatchingTable({ data, teachers }) {
             newState[sInd] = result[sInd];
             newState[dInd] = result[dInd];
 
-            setState(newState.filter(group => group.length));
+            setState(newState);
         }
     }
 
@@ -119,7 +120,7 @@ export default function MatchingTable({ data, teachers }) {
                         </Droppable>
                     ))}
                 </DragDropContext>
-                <button className="btn btn-primary" style={{ position: "sticky", top: "90vh", right: "30px", height: "60px", width: "60px", borderRadius: "30px", boxShadow: "0px 3px 4px 0px rgba(0,0,0,0.25)" }} onClick={() => console.log(state)}>Save</button>
+                <button className="btn btn-primary" style={{ position: "sticky", top: "90vh", right: "30px", height: "60px", width: "60px", borderRadius: "30px", boxShadow: "0px 3px 4px 0px rgba(0,0,0,0.25)" }} onClick={() => console.log(state,teachers)}>Save</button>
             </div>
         </div>
     );
