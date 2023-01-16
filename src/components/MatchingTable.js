@@ -120,9 +120,21 @@ export default function MatchingTable({ data, teachers }) {
                         </Droppable>
                     ))}
                 </DragDropContext>
-                <button className="btn btn-primary" style={{ position: "sticky", top: "90vh", right: "30px", height: "60px", width: "60px", borderRadius: "30px", boxShadow: "0px 3px 4px 0px rgba(0,0,0,0.25)" }} onClick={() => console.log(state,teachers)}>Save</button>
+                <button className="btn btn-primary" style={{ position: "sticky", top: "90vh", right: "30px", height: "60px", width: "60px", borderRadius: "30px", boxShadow: "0px 3px 4px 0px rgba(0,0,0,0.25)" }} onClick={() => console.log(state,teachers,giveOutputData(state,teachers))}>Save</button>
             </div>
         </div>
     );
 }
 
+function giveOutputData(state, teachers) {
+    let output = [];
+    state.forEach((el, ind) => {
+        el.forEach((item) => {
+            output.push({
+                name: item.name,
+                teacher: teachers[ind]
+            });
+        });
+    });
+    return output;
+}
